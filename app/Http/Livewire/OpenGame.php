@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use App\Actions\GetGameBoard;
+use Livewire\Component;
+
+class OpenGame extends Component
+{
+    public string $code = '';
+
+    protected function rules(){
+        return [
+            'code'=>['required','string','size:'.config('jotto.codes.game.length'),'exists:games,code'],
+        ];
+    }
+
+    public function render()
+    {
+        return view('livewire.open-game');
+    }
+
+    public function submit()
+    {
+        return redirect()->to('game',['game'=>\App\Models\Game::firstWhere('code',$this->code)]);
+    }
+}

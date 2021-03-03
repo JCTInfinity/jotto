@@ -9,9 +9,8 @@ use App\Actions\SetSessionName;
 use App\Actions\SetSessionPlayer;
 use Livewire\Component;
 
-class JoinGame extends Component
+class CreateGame extends Component
 {
-    public \App\Models\Game $game;
     public string $name = '';
     public string $word = '';
 
@@ -20,20 +19,11 @@ class JoinGame extends Component
         if(empty($this->name)) $this->name = GetSessionName::run() ?? '';
     }
 
-    protected function rules()
-    {
-        $rules = MakePlayer::RULES;
-        array_push($rules['name'], 'not_in:'.$this->game->players->first()->name);
-        return $rules;
-    }
-
-    protected $messages = [
-        'name.not_in' => 'You cannot have the same name as your opponent.',
-    ];
+    protected $rules = MakePlayer::RULES;
 
     public function render()
     {
-        return view('livewire.join-game');
+        return view('livewire.create-game');
     }
 
     public function updated($propertyName)
@@ -48,11 +38,7 @@ class JoinGame extends Component
     {
         $this->validate();
 
-        if($this->game->players->count() > 1){
-            $this->addError('game full','This game already has 2 players');
-        } else {
-            AddPlayerTwo::run($this->game,MakePlayer::run($this->name,$this->word));
-            $this->emit('refreshPlayers');
-        }
+        $game = \App\Actions\CreateGame::run(MakePlayer::run($this->name,$this->word));
+        return redirect()->to($game->url);
     }
 }

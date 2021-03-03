@@ -26842,6 +26842,10 @@ video {
   letter-spacing: 0.1em;
 }
 
+.tracking-boxes {
+  letter-spacing: 1.1em;
+}
+
 .select-none {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -57567,6 +57571,10 @@ body {
     letter-spacing: 0.1em;
   }
 
+  .sm\:tracking-boxes {
+    letter-spacing: 1.1em;
+  }
+
   .sm\:select-none {
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -88221,6 +88229,10 @@ body {
 
   .md\:tracking-widest {
     letter-spacing: 0.1em;
+  }
+
+  .md\:tracking-boxes {
+    letter-spacing: 1.1em;
   }
 
   .md\:select-none {
@@ -118879,6 +118891,10 @@ body {
     letter-spacing: 0.1em;
   }
 
+  .lg\:tracking-boxes {
+    letter-spacing: 1.1em;
+  }
+
   .lg\:select-none {
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -149535,6 +149551,10 @@ body {
     letter-spacing: 0.1em;
   }
 
+  .xl\:tracking-boxes {
+    letter-spacing: 1.1em;
+  }
+
   .xl\:select-none {
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -180189,6 +180209,10 @@ body {
 
   .\32xl\:tracking-widest {
     letter-spacing: 0.1em;
+  }
+
+  .\32xl\:tracking-boxes {
+    letter-spacing: 1.1em;
   }
 
   .\32xl\:select-none {

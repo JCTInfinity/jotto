@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/games/{game:code}',\App\Actions\GetGameBoard::class)->name('game');
-Route::get('/games/{game:code}',\App\Actions\GetGameBoard::class)->name('game');
+Route::get('/players/{player:code}',\App\Actions\GetGameBoard::class)->name('game');

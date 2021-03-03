@@ -24,6 +24,10 @@ class MakePlayer
 
     public function handle($name, $word)
     {
-        return new Player(['name'=>$name,'word'=>strtoupper($word)]);
+        return new Player([
+            'name'=>$name,
+            'word'=>strtoupper($word),
+            'code'=>GetCode::run('player')
+        ]);
     }
 }

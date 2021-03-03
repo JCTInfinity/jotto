@@ -12,14 +12,16 @@ class DeclareVictor
 
     public function handle(Player $player)
     {
-        DB::transaction(function()use($player){
-            $player->game->ended_at = now();
-            $player->winner = true;
-            $player->turn = false;
-            $opponent = $player->opponent();
-            $opponent->winner = false;
-            $opponent->turn = false;
-            $player->game->save() && $player->save() && $opponent->save();
-        });
+        $player->game->ended_at = now();
+        $this->endGameForPlayer($player, true);
+        $this->endGameForPlayer($opponent = $player->opponent(), false);
+        DB::transaction(fn()=>$player->game->save() && $player->save() && $opponent->save());
+    }
+
+    public function endGameForPlayer(Player $player, bool $winner)
+    {
+        $player->winner = $winner;
+        $player->turn = false;
+        $player->code = null;
     }
 }

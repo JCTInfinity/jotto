@@ -13,6 +13,9 @@ module.exports = {
             jotto: ['"Markazi Text"', ...defaultTheme.fontFamily.serif],
             hand: ['"Patrick Hand"', ...defaultTheme.fontFamily.sans],
         },
+        letterSpacing: {
+            boxes: '1.1em',
+        }
     },
   },
   variants: {
