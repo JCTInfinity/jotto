@@ -11,16 +11,22 @@ module.exports = {
         fontFamily: {
             sans: ['Roboto', ...defaultTheme.fontFamily.sans],
             jotto: ['"Markazi Text"', ...defaultTheme.fontFamily.serif],
-            hand: ['"Patrick Hand"', ...defaultTheme.fontFamily.sans],
+            mono: ['"Syne Mono"', ...defaultTheme.fontFamily.mono],
         },
         letterSpacing: {
-            boxes: '1.1em',
+            boxes: '1em',
+            'names': '0.5em',
+            'input-boxes': '0.9em',
+        },
+        spacing: {
+            35: '8.75rem'
         }
     },
   },
   variants: {
     extend: {
         borderWidth: ['first'],
+        letterSpacing: ['focus'],
     },
   },
   plugins: [],

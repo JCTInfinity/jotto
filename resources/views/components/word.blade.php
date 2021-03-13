@@ -1,6 +1,4 @@
-@props(['letters'])
-<span {{ $attributes->merge(['class'=>'font-hand uppercase flex justify-center items-center']) }}>
-    @for($i = 0; $i < 5; $i++)
-        <x-letter :letter="$letters[$i] ?? ''"/>
-    @endfor
+<span {{ $attributes->merge(['class'=>'h-7 w-35 border border-black font-mono uppercase text-lg pl-2 tracking-boxes relative block']) }}>
+    {{$slot}}
+    <x-word-grid/>
 </span>

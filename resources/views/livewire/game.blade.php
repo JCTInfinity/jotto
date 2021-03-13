@@ -3,7 +3,7 @@
         <p class="px-6 w-full flex flex-col items-center">
             @if($player)
                 <span>Your secret word</span>
-                <x-secret-word class="block" :letters="$player->word->letters()"/>
+                <x-secret-word class="block" :word="$player->word"/>
             @else
             <span>{{ $player1->name }}'s secret Jotto Letters</span>
                 <x-opponents-letters class="block"/>
@@ -13,8 +13,11 @@
             @if($opponent)
                 <span>{{ $opponent->name }}'s secret Jotto Letters</span>
                 <x-opponents-letters class="block"/>
+            @elseif($player)
+                Give your opponent this code
+                <x-word>{{$game->code}}</x-word>
             @else
-                Waiting for opponent
+                <livewire:join-game :game="$game"/>
             @endif
         </p>
     </section>
@@ -33,7 +36,7 @@
                     <tr wire:key="guesses-row-{{$i}}">
                         <td class="pt-2">
                             @if($guess1)
-                                <x-word :letters="$guess1->letters ?? []"/>
+                                <x-word class="mx-auto">{{ $guess1->word }}</x-word>
                             @elseif($player->turn ?? false)
                                 @php($secondPlayer = true)
                                 <x-make-guess />
@@ -44,7 +47,7 @@
                         </td>
                         <td class="pt-2"></td>
                         <td class="pt-2">
-                            @if($guess2)<x-word :letters="$guess2->letters ?? []"/>@endif
+                            @if($guess2)<x-word class="mx-auto">{{ $guess2->word }}</x-word>@endif
                         </td>
                         <td class="pt-2 text-center">
                             <x-jots :guess="$guess2"/>
@@ -62,9 +65,7 @@
             @else
                 <tr wire:key="join">
                     <td class="pt-2" colspan="5">
-                        @if(!$player)
-                            <livewire:join-game :game="$game"/>
-                        @endif
+
                     </td>
                 </tr>
             @endif

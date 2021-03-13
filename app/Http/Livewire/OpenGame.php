@@ -22,6 +22,7 @@ class OpenGame extends Component
 
     public function submit()
     {
-        return redirect()->to('game',['game'=>\App\Models\Game::firstWhere('code',$this->code)]);
+        ['code'=>$code] = $this->validate();
+        return redirect()->route('game',['game'=>$code]);
     }
 }
