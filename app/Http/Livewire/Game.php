@@ -13,7 +13,7 @@ class Game extends Component
     public GameModel $game;
     public ?Player $player;
     public ?Player $player1;
-    public ?Player $opponent;
+    public ?Player $player2;
     public ?string $guessWord = '';
 
     protected $rules = [
@@ -29,11 +29,9 @@ class Game extends Component
 
     public function refreshPlayers()
     {
-        $this->player1 = $this->player = GetSessionPlayer::run($this->game);
-        if(empty($this->player1)){
-            $this->player1 = $this->game->players->first();
-        }
-        $this->opponent = $this->game->opponent($this->player1);
+        $this->player = GetSessionPlayer::run($this->game);
+        $this->player1 = $this->game->players->first();
+        $this->player2 = $this->game->opponent($this->player1);
     }
 
     public function render()

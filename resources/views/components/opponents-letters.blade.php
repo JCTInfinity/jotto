@@ -1,1 +1,1 @@
-<x-word-field/>
+<x-word-field wire:ignore/>

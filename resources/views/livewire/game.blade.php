@@ -1,69 +1,43 @@
 <main class="m-2 border-2 shadow-lg p-2 space-y-4" @unless($game->ended) wire:poll="attend" @endunless >
-    <section class="container mx-auto flex uppercase divide-x divide-dashed justify-center">
-        <p class="px-6 w-full flex flex-col items-center">
-            @if($player)
-                <span>Your secret word</span>
-                <x-secret-word class="block" :word="$player->word"/>
-            @else
-            <span>{{ $player1->name }}'s secret Jotto Letters</span>
-                <x-opponents-letters class="block"/>
-            @endif
-        </p>
-        <p class="text-center px-6 w-full flex flex-col items-center justify-center">
-            @if($opponent)
-                <span>{{ $opponent->name }}'s secret Jotto Letters</span>
-                <x-opponents-letters class="block"/>
-            @elseif($player)
-                Give your opponent this code
-                <x-word class="select-all">{{$game->code}}</x-word>
-            @else
-                <livewire:join-game :game="$game"/>
-            @endif
-        </p>
-    </section>
+    <x-header-section>
+        <x-game-header-content :player="$player1" :user="$player" :game="$game"/>
+        <x-game-header-content :player="$player2" :user="$player" :game="$game"/>
+    </x-header-section>
     <x-title />
-    <section class="container mx-auto">
-        <table class="w-full">
-            <tr class="bg-black text-white divide-x divide-white">
-                <th>{{$player1->name}}'s test word</th>
-                <th>No. of<br>Jots</th>
-                <th class="w-1/12"></th>
-                <th>{{$opponent->name ?? 'Opponent'}}'s test word</th>
-                <th>No. of<br>Jots</th>
-            </tr>
-            @if($opponent)
-                @foreach($player1->guesses->zip($opponent->guesses) as $i=>list($guess1,$guess2))
-                    <tr wire:key="guesses-row-{{$i}}">
-                        <td class="pt-2">
-                            @if($guess1)
-                                <x-word class="mx-auto">{{ $guess1->word }}</x-word>
-                            @elseif($player->turn ?? false)
-                                @php($secondPlayer = true)
-                                <x-make-guess />
-                            @endif
-                        </td>
-                        <td class="pt-2 text-center">
-                            <x-jots :guess="$guess1"/>
-                        </td>
-                        <td class="pt-2"></td>
-                        <td class="pt-2">
-                            @if($guess2)<x-word class="mx-auto">{{ $guess2->word }}</x-word>@endif
-                        </td>
-                        <td class="pt-2 text-center">
+    <section class="max-w-lg mx-auto">
+        <div class="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-2">
+            <x-guess-cell left>
+                <span>{{$player1->name}}'s test word</span>
+                <span class="text-center w-10">Jots</span>
+            </x-guess-cell>
+            <x-guess-cell>
+                <span>{{$opponent->name ?? 'Opponent'}}'s test word</span>
+                <span class="text-center w-10">Jots</span>
+            </x-guess-cell>
+            @if($player2)
+                @foreach($player1->guesses->zip($player2->guesses) as $i=>list($guess1,$guess2))
+                    <x-guess-cell left wire:key="guess-{{$i}}-left">
+                        <x-word>
+                            {{ $guess1->word ?? '' }}
+                        </x-word>
+                        @if($guess1)<x-jots :guess="$guess1"/>@endif
+                    </x-guess-cell>
+                    @if($guess2)
+                        <x-guess-cell  wire:key="guess-{{$i}}-right">
+                            <x-word>
+                                {{ $guess2->word }}
+                            </x-word>
                             <x-jots :guess="$guess2"/>
-                        </td>
-                    </tr>
+                        </x-guess-cell>
+                    @endif
                 @endforeach
-                @if(($player->turn ?? false) && !($secondPlayer??false))
-                    <tr>
-                        <td class="pt-2">
-                            <x-make-guess />
-                        </td>
-                        <td class="pt-2" colspan="4"></td>
-                    </tr>
+                @if($player->turn ?? false)
+                    <x-guess-cell :left="$player->is($player1)" wire:key="guess-last">
+                        <x-make-guess />
+                    </x-guess-cell>
                 @endif
             @endif
-        </table>
+        </div>
     </section>
     <section class="mt-3 container mx-auto">
         <x-alphabet/>
