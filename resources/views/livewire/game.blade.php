@@ -1,4 +1,4 @@
-<main class="m-2 border-2 shadow-lg p-2 space-y-4" wire:poll="attend">
+<main class="m-2 border-2 shadow-lg p-2 space-y-4" @unless($game->ended || ($player->turn ?? false)) wire:poll="attend" @endunless >
     <section class="container mx-auto flex uppercase divide-x divide-dashed justify-center">
         <p class="px-6 w-full flex flex-col items-center">
             @if($player)
@@ -15,7 +15,7 @@
                 <x-opponents-letters class="block"/>
             @elseif($player)
                 Give your opponent this code
-                <x-word>{{$game->code}}</x-word>
+                <x-word class="select-all">{{$game->code}}</x-word>
             @else
                 <livewire:join-game :game="$game"/>
             @endif
@@ -62,13 +62,10 @@
                         <td class="pt-2" colspan="4"></td>
                     </tr>
                 @endif
-            @else
-                <tr wire:key="join">
-                    <td class="pt-2" colspan="5">
-
-                    </td>
-                </tr>
             @endif
         </table>
+    </section>
+    <section class="mt-3 container mx-auto">
+        <x-alphabet/>
     </section>
 </main>

@@ -14,10 +14,11 @@ use Illuminate\Support\Carbon;
  * @property Carbon $created_at
  * @property Carbon $ended_at
  *
- * @property string $url
- * @property string $title
- * @property Collection|Player[] $players
- * @property Collection|Guess[] $guesses
+ * @property-read string $url
+ * @property-read string $title
+ * @property-read bool $ended
+ * @property-read Collection|Player[] $players
+ * @property-read Collection|Guess[] $guesses
  *
  * @mixin Builder
  */
@@ -42,6 +43,11 @@ class Game extends Model
     public function getTitleAttribute()
     {
         return $this->players->map->name->join(' and ') ."'s game from ".$this->created_at->toDayDateTimeString();
+    }
+
+    public function getEndedAttribute()
+    {
+        return !empty($this->ended_at);
     }
 
     public function opponent(Player $player): ?Player

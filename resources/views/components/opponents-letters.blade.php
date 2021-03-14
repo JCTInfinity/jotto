@@ -1,1 +1,1 @@
-<x-word> </x-word>
+<x-word-field/>
