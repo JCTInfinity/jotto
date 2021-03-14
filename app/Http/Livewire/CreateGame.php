@@ -7,6 +7,7 @@ use App\Actions\GetSessionName;
 use App\Actions\MakePlayer;
 use App\Actions\SetSessionName;
 use App\Actions\SetSessionPlayer;
+use App\Actions\ValidateWord;
 use Livewire\Component;
 
 class CreateGame extends Component
@@ -19,7 +20,10 @@ class CreateGame extends Component
         if(empty($this->name)) $this->name = GetSessionName::run() ?? '';
     }
 
-    protected $rules = MakePlayer::RULES;
+    protected function rules()
+    {
+        return MakePlayer::make()->rules();
+    }
 
     public function render()
     {

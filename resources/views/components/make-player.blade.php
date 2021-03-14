@@ -3,10 +3,12 @@
     <div class="space-y-0.5">
         <x-name-field wire:model.lazy="name"/>
         <div class="flex">
-            <x-horizontal-field label="Word">
-                <x-word-field wire:model.defer="word"/>
+            <x-horizontal-field name="word">
+                <div class="flex">
+                    <x-word-field wire:model.defer="word"/>
+                    <x-button :text="$action" class="rounded-l-none h-7"/>
+                </div>
             </x-horizontal-field>
-            <x-button :text="$action" class="rounded-l-none h-7"/>
         </div>
     </div>
 </form>

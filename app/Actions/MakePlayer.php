@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use App\Models\Player;
+use App\Rules\DictionaryWord;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
@@ -12,14 +13,12 @@ class MakePlayer
 {
     use AsAction;
 
-    const RULES = [
-        'name' => ['required', 'string', 'alpha_dash'],
-        'word' => ['required', 'string', 'size:5', 'alpha'],
-    ];
-
     public function rules(): array
     {
-        return self::RULES;
+        return [
+            'name' => ['required', 'string', 'alpha_dash'],
+            'word' => ['required', 'string', 'size:5', 'alpha', new DictionaryWord()],
+        ];
     }
 
     public function handle($name, $word)

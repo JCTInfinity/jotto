@@ -11,4 +11,5 @@
         <x-title />
 
     </main>
+    <x-dictionary-credit/>
 </x-layout>

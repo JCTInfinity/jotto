@@ -1,4 +1,4 @@
-<main class="m-2 border-2 shadow-lg p-2 space-y-4" @unless($game->ended || ($player->turn ?? false)) wire:poll="attend" @endunless >
+<main class="m-2 border-2 shadow-lg p-2 space-y-4" @unless($game->ended) wire:poll="attend" @endunless >
     <section class="container mx-auto flex uppercase divide-x divide-dashed justify-center">
         <p class="px-6 w-full flex flex-col items-center">
             @if($player)

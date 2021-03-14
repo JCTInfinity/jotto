@@ -22,7 +22,7 @@ class JoinGame extends Component
 
     protected function rules()
     {
-        $rules = MakePlayer::RULES;
+        $rules = MakePlayer::make()->rules();
         array_push($rules['name'], 'not_in:'.$this->game->players->first()->name);
         return $rules;
     }

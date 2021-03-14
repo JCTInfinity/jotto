@@ -30,4 +30,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'dictionaryapi' => [
+        'key' => env('DICTIONARY_API_KEY')
+    ]
 ];
