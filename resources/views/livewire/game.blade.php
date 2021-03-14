@@ -5,13 +5,13 @@
     </x-header-section>
     <x-title />
     <section class="max-w-lg mx-auto">
-        <div class="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-2">
-            <x-guess-cell left>
-                <span>{{$player1->name}}'s test word</span>
+        <div class="flex flex-col space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-2">
+            <x-guess-cell header left>
+                <span class="w-35">{{$player1->name}}'s test&nbsp;word</span>
                 <span class="text-center w-10">Jots</span>
             </x-guess-cell>
-            <x-guess-cell>
-                <span>{{$opponent->name ?? 'Opponent'}}'s test word</span>
+            <x-guess-cell header>
+                <span class="w-35">{{$opponent->name ?? 'Opponent'}}'s test&nbsp;word</span>
                 <span class="text-center w-10">Jots</span>
             </x-guess-cell>
             @if($player2)

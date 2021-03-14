@@ -6,5 +6,5 @@
         </x-header-section>
         <x-title />
     </main>
-    <x-dictionary-credit/>
+    <x-footer/>
 </x-layout>

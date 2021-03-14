@@ -26,6 +26,6 @@ $alphabet = array_map(fn()=>null,array_flip(str_split('ABCDEFGHIJKLMNOPQRSTUVWXY
 @endonce
 <div class="w-full max-w-xl mx-auto flex flex-wrap justify-evenly" x-data="alphabetData()">
     @foreach($alphabet as $letter=>$null)
-        <button class="mx-2 mb-2 px-3 py-1 rounded-full border border-transparent" x-on:click="{{ $letter }} = next( {{ $letter }} )" x-bind:class="style({{$letter}})">{{$letter}}</button>
+        <button class="mx-2 mb-2 text-center w-9 py-1 rounded-full border border-transparent" x-on:click="{{ $letter }} = next( {{ $letter }} )" x-bind:class="style({{$letter}})">{{$letter}}</button>
     @endforeach
 </div>

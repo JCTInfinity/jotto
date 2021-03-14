@@ -1,4 +1,4 @@
-<form class="pt-2 md:pt-0 px-6 w-full flex flex-col items-center" wire:submit.prevent="submit">
+<form class="pt-2 sm:pt-0 px-6 w-full flex flex-col items-center" wire:submit.prevent="submit">
     <x-horizontal-field name="code" label="Game">
         <div class="flex">
             <x-word-field wire:model.defer="code" />
