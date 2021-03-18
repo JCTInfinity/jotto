@@ -15,7 +15,8 @@ class ValidateWord
 
     public function handle(string $word)
     {
-        $wordRecord = Word::firstWhere('word',$word);
+        $word = strtoupper($word);
+        $wordRecord = Word::firstWhere('word',strtoupper($word));
         if($wordRecord) return $wordRecord->valid;
 
         $response = Http::get(self::API_ROOT.$word,['key'=>config('services.dictionaryapi.key')]);
