@@ -1,5 +1,5 @@
 @props(['word'])
-<button {{ $attributes->merge(['class'=>'flex justify-center items-center cursor-pointer']) }}
+<button {{ $attributes->merge(['class'=>'flex items-center cursor-pointer']) }}
       x-data='{visible:false}' x-on:click="visible = !visible">
     <span class="block relative">
         <x-word class="invisible" x-bind:class="{invisible:!visible}">{{ $word }}</x-word>

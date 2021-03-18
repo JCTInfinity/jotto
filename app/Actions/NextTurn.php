@@ -3,6 +3,8 @@
 namespace App\Actions;
 
 use App\Models\Game;
+use App\Models\Player;
+use App\Notifications\YourTurn;
 use Illuminate\Support\Facades\DB;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -18,9 +20,10 @@ class NextTurn
         DB::transaction(fn()=>$this->togglePlayers($currentPlayer,$game->opponent($currentPlayer)));
     }
 
-    public function togglePlayers($currentPlayer, $opponent)
+    public function togglePlayers(Player $currentPlayer, Player $opponent)
     {
         $currentPlayer->update(['turn'=>false]);
         $opponent->update(['turn'=>true]);
+        $opponent->notify(new YourTurn());
     }
 }

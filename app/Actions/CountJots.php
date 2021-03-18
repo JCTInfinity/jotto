@@ -12,7 +12,6 @@ class CountJots
     {
         $opponentWord = $guess->player->opponent()->word;
         if($guess->word->exactly((string)$opponentWord)){
-            DeclareVictor::run($guess->player);
             $jots = 6;
         } else {
             $jots = $guess->word->comparableLetters()

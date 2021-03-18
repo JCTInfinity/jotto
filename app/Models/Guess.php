@@ -16,6 +16,7 @@ use Illuminate\Support\Stringable;
  * @property-read Game $game
  * @property-read Player $player
  * @property-read bool $hasJots
+ * @property-read bool $jotto
  */
 class Guess extends Model
 {
@@ -50,5 +51,10 @@ class Guess extends Model
     public function player()
     {
         return $this->belongsTo(Player::class);
+    }
+
+    public function getJottoAttribute()
+    {
+        return $this->jots === 6;
     }
 }

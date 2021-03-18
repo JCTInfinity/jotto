@@ -7,24 +7,27 @@ use App\Actions\GetSessionName;
 use App\Actions\MakePlayer;
 use App\Actions\SetSessionName;
 use App\Actions\SetSessionPlayer;
+use App\Traits\MakesPlayers;
 use Livewire\Component;
 
 class JoinGame extends Component
 {
+    use MakesPlayers;
     public \App\Models\Game $game;
     public string $name = '';
     public string $word = '';
 
     public function mount()
     {
-        if(empty($this->name)) $this->name = GetSessionName::run() ?? '';
+        $this->getSessionName();
     }
 
     protected function rules()
     {
-        $rules = MakePlayer::make()->rules();
-        array_push($rules['name'], 'not_in:'.$this->game->players->first()->name);
-        return $rules;
+        return array_merge_recursive(
+            $this->playerRules(),
+            ['name'=>'not_in:'.$this->game->players->first()->name]
+        );
     }
 
     protected $messages = [
@@ -39,9 +42,6 @@ class JoinGame extends Component
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
-        if($propertyName === 'name'){
-            SetSessionName::run($this->name);
-        }
     }
 
     public function submit()
@@ -51,7 +51,7 @@ class JoinGame extends Component
         if($this->game->players->count() > 1){
             $this->addError('game full','This game already has 2 players');
         } else {
-            AddPlayerTwo::run($this->game,MakePlayer::run($this->name,$this->word));
+            AddPlayerTwo::run($this->game,$this->makePlayer());
             $this->emit('refreshPlayers');
         }
     }

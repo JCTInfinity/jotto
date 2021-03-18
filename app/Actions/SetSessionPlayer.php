@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use App\Models\Player;
+use Illuminate\Http\Request;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
@@ -15,5 +16,12 @@ class SetSessionPlayer
     public function handle(Player $player)
     {
         session(['player@'.$player->game->code=>$player->id]);
+    }
+
+    public function asController(Request $request, Player $player)
+    {
+        if(!$request->hasValidSignature()) abort(403);
+        $this->handle($player);
+        return redirect()->route('game',['game'=>$player->game->code]);
     }
 }

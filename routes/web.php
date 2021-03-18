@@ -18,4 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('/games/{game:code}',\App\Actions\GetGameBoard::class)->name('game');
-Route::get('/players/{player:code}',\App\Actions\GetGameBoard::class)->name('return-to-game');
+Route::get('/players/{player:code}',\App\Actions\SetSessionPlayer::class)->name('return-to-game');
+
+Route::view('about','about');
+Route::view('admin','admin.login');
+Route::view('admin/dashboard','admin.dashboard')->middleware(['auth']);
+Route::post('admin/login',\App\Actions\SendAdminLoginLink::class);
+Route::get('admin/login',\App\Actions\AdminLogin::class)->name('admin-authenticate');

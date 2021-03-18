@@ -29,5 +29,7 @@ module.exports = {
         letterSpacing: ['focus'],
     },
   },
-  plugins: [],
+  plugins: [
+      require('@tailwindcss/typography'),
+  ],
 }

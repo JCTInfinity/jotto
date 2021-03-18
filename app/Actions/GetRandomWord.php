@@ -2,13 +2,15 @@
 
 namespace App\Actions;
 
+use App\Models\Word;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class GetSessionName
+class GetRandomWord
 {
     use AsAction;
+
     public function handle()
     {
-        return session('name','');
+        return Word::where('valid',true)->inRandomOrder()->first()->word ?? 'shant';
     }
 }

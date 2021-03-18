@@ -22,5 +22,6 @@
     <body class="antialiased">
         {{ $slot }}
         @livewireScripts
+        @stack('scripts')
     </body>
 </html>

@@ -16,7 +16,7 @@ class MakeGuess
     public function handle(Player $player, string $word)
     {
         if(!$player->turn) throw new \Exception("It's not your turn");
-        $guess = $player->guesses()->create(['word'=>strtoupper($word)]);
-        if(CountJots::run($guess) !== 6) NextTurn::run($player->game);
+        CountJots::run($player->guesses()->create(['word'=>strtoupper($word)]));
+        NextTurn::run($player->game);
     }
 }

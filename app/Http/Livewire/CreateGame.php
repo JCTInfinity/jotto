@@ -8,21 +8,21 @@ use App\Actions\MakePlayer;
 use App\Actions\SetSessionName;
 use App\Actions\SetSessionPlayer;
 use App\Actions\ValidateWord;
+use App\Traits\MakesPlayers;
 use Livewire\Component;
 
 class CreateGame extends Component
 {
-    public string $name = '';
-    public string $word = '';
+    use MakesPlayers;
 
     public function mount()
     {
-        if(empty($this->name)) $this->name = GetSessionName::run() ?? '';
+        $this->getSessionName();
     }
 
     protected function rules()
     {
-        return MakePlayer::make()->rules();
+        return $this->playerRules();
     }
 
     public function render()
@@ -33,16 +33,13 @@ class CreateGame extends Component
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
-        if($propertyName === 'name'){
-            SetSessionName::run($this->name);
-        }
     }
 
     public function submit()
     {
         $this->validate();
 
-        $game = \App\Actions\CreateGame::run(MakePlayer::run($this->name,$this->word));
+        $game = \App\Actions\CreateGame::run($this->makePlayer());
         return redirect()->to($game->url);
     }
 }

@@ -32,5 +32,9 @@ return [
 
     'dictionaryapi' => [
         'key' => env('DICTIONARY_API_KEY')
+    ],
+
+    'discord' => [
+        'admin_webhook_url' => env('ADMIN_DISCORD_WEBHOOK'),
     ]
 ];
