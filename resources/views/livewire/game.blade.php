@@ -54,5 +54,6 @@
     </section>
     <section class="mt-3 container mx-auto">
         <x-alphabet/>
+        <textarea placeholder="Notes"></textarea>
     </section>
 </x-main>
