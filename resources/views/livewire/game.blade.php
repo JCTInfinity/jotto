@@ -9,9 +9,7 @@
             return {
                 fireNotification: function($event){
                     console.log($event.detail);
-                    if(document.hidden){
-                        new Notification('Jotto',{body:$event.detail.body});
-                    }
+                    new Notification('Jotto',{body:$event.detail.body});
                     this.$wire.readNotifications($event.detail.id);
                 }
             }
