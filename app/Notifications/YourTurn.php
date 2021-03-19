@@ -40,7 +40,7 @@ class YourTurn extends Notification
     public function toArray($notifiable)
     {
         return [
-            'body'=>"It's your turn!"
+            'body'=>"$notifiable->name, it's your turn!"
         ];
     }
 }
