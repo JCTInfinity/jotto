@@ -23,4 +23,14 @@ class Word extends Model
         'valid'=>'bool',
         'api_response'=>'array',
     ];
+
+    public function guesses()
+    {
+        return $this->hasMany(Guess::class,'word','word');
+    }
+
+    public function players()
+    {
+        return $this->hasMany(Player::class,'word','word');
+    }
 }
