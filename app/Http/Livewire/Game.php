@@ -21,9 +21,13 @@ class Game extends Component
     public ?string $guessWord = '';
     public string $title;
 
-    protected $rules = [
-        'guessWord'=>MakeGuess::RULES['word'],
-    ];
+
+    protected function rules()
+    {
+        return [
+            'guessWord'=>MakeGuess::make()->rules()['word'],
+        ];
+    }
 
     protected $listeners = ['refreshPlayers'];
 
@@ -65,7 +69,8 @@ class Game extends Component
             if($unreadNotification){
                 $this->dispatchBrowserEvent('notification',[
                     'id'=>$unreadNotification->id,
-                    'body'=>$unreadNotification->data['body'] ?? Str::afterLast($unreadNotification->type,'\\'),
+                    'body'=>$unreadNotification->data['body'] ??
+                        Str::afterLast($unreadNotification->type,'\\'),
                 ]);
             }
         }

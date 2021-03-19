@@ -3,15 +3,19 @@
 namespace App\Actions;
 
 use App\Models\Player;
+use App\Rules\DictionaryWord;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class MakeGuess
 {
     use AsAction;
 
-    const RULES = [
-        'word'=>['required', 'string', 'size:5', 'alpha']
-    ];
+    public function rules(): array
+    {
+        return [
+            'word' => ['required', 'string', 'size:5', 'alpha', new DictionaryWord()],
+        ];
+    }
 
     public function handle(Player $player, string $word)
     {
