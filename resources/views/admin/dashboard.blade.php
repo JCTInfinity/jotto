@@ -7,7 +7,7 @@
         <x-title />
         <section class="prose lg:prose-xl max-w-prose mx-auto">
             <livewire:datatable model="App\Models\Game"
-                        include="players.name,created_at,players.active_at:max|Last Active,ended_at"/>
+                        include="code,players.name,created_at,players.active_at:max|Last Active,ended_at"/>
             <livewire:datatable model="App\Models\Word"
                                 searchable="word" filterable="valid"
                         include="word,valid,guesses.id:count|Guesses,players.id:count|Players" per-page="20"/>
