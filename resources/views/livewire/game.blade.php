@@ -22,10 +22,10 @@
                 <span class="text-center w-10">Jots</span>
             </x-guess-cell>
             <x-guess-cell header>
-                <span class="w-35">{{$opponent->name ?? 'Opponent'}}'s test&nbsp;word</span>
+                <span class="w-35">{{$player2->name ?? 'Opponent'}}'s test&nbsp;word</span>
                 <span class="text-center w-10">Jots</span>
             </x-guess-cell>
-            @if($player2)
+            @if($player2){{-- If the game has both players --}}
                 @foreach($player1->guesses->zip($player2->guesses) as $i=>list($guess1,$guess2))
                     <x-guess-cell left wire:key="guess-{{$i}}-left">
                         <x-word>
@@ -48,6 +48,10 @@
                     <x-guess-cell :left="$player->is($player1)" wire:key="guess-last">
                         <x-make-guess />
                     </x-guess-cell>
+                    @if($player1->latestGuess->jotto ?? false)
+                        <span></span>
+                        <span class="text-red-500">One chance to tie!</span>
+                    @endif
                 @endif
             @endif
         </div>
