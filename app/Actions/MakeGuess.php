@@ -21,6 +21,6 @@ class MakeGuess
     {
         if(!$player->turn) throw new \Exception("It's not your turn");
         CountJots::run($player->guesses()->create(['word'=>strtoupper($word)]));
-        NextTurn::run($player->game);
+        EndTurn::run($player);
     }
 }

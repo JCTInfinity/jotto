@@ -53,7 +53,7 @@
         </div>
     </section>
     <section class="mt-3 container mx-auto">
+        <textarea wire:ignore placeholder="Notes" class="w-full max-w-xl mx-auto mb-3 shadow-inner p-2 block"></textarea>
         <x-alphabet/>
-        <textarea placeholder="Notes"></textarea>
     </section>
 </x-main>

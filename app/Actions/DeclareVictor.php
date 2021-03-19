@@ -18,9 +18,9 @@ class DeclareVictor
         $game->players->each(fn($player)=>$this->endGameForPlayer($player));
         DB::transaction(fn()=>$game->save() && $game->players->each->save());
 
-        if($game->players
+        $draw = $game->players
             ->map->latestGuess
-            ->every->jotto) $draw = true;
+            ->every->jotto;
 
         $game->players->each(fn(Player $player)=>$player->notify(
             new GameEnded($draw ? null : $player->latestGuess->jotto)
