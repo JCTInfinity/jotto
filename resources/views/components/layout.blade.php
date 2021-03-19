@@ -25,7 +25,7 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     </head>
-    <body class="antialiased">
+    <body class="antialiased mb-6">
         {{ $slot }}
         @livewireScripts
         @stack('scripts')
