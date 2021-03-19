@@ -23,6 +23,6 @@ class OpenGame extends Component
     public function submit()
     {
         ['code'=>$code] = $this->validate();
-        return redirect()->route('game',['game'=>$code]);
+        return redirect()->route('game',['game'=>strtolower($code)]);
     }
 }
