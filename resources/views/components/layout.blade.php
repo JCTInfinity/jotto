@@ -18,11 +18,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600&family=Syne+Mono&family=Roboto&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
         @livewireStyles
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <script src="{{ mix('/js/app.js') }}" defer></script>
 
     </head>
     <body class="antialiased mb-6">

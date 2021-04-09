@@ -1,14 +1,14 @@
 @props(['action'])
 <form {{ $attributes->merge(['class'=>'px-6 w-full flex flex-col items-center']) }}
     x-data="{
-        getNotifyPermission: function(){
+        askForNotificationPermission: function(){
             if('Notification' in window && Notification.permission !== 'denied'){
                 Notification.requestPermission().then(()=>this.$wire.submit());
             } else {
                 this.$wire.submit();
             }
         }
-    }" x-on:submit.prevent="getNotifyPermission()">
+    }" x-on:submit.prevent="askForNotificationPermission()">
     <div class="space-y-0.5">
         <x-name-field wire:model.lazy="name"/>
         <x-horizontal-field name="word">

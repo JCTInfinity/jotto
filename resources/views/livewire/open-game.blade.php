@@ -2,7 +2,7 @@
     <x-horizontal-field name="code" label="Game">
         <div class="flex">
             <x-word-field wire:model.defer="code" />
-            <x-button text="Join" rounded="right" class="h-7"/>
+            <x-button text="Open" rounded="right" class="h-7"/>
         </div>
     </x-horizontal-field>
 </form>
