@@ -17,7 +17,6 @@ class MakePlayer
     {
         return [
             'name' => ['required', 'string', 'alpha_dash'],
-            'word' => ['required', 'string', 'size:5', 'alpha', new DictionaryWord()],
         ];
     }
 
@@ -25,7 +24,6 @@ class MakePlayer
     {
         return new Player([
             'name'=>$name,
-            'word'=>strtoupper($word),
             'code'=>GetCode::run('player')
         ]);
     }

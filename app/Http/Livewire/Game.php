@@ -41,7 +41,7 @@ class Game extends Component
         $this->game->refresh();
         $this->player = GetSessionPlayer::run($this->game);
         $this->player1 = $this->game->players->first();
-        $this->player2 = $this->game->opponent($this->player1);
+        $this->player2 = $this->player1 ? $this->game->opponent($this->player1) : null;
     }
 
     public function render()

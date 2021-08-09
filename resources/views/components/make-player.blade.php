@@ -10,13 +10,11 @@
         }
     }" x-on:submit.prevent="getNotifyPermission()">
     <div class="space-y-0.5">
-        <x-name-field wire:model.lazy="name"/>
-        <x-horizontal-field name="word">
+        <x-horizontal-field name="name">
             <div class="flex">
-                <x-word-field wire:model.defer="word"/>
-                <x-button icon="play" :text="$action" h7 rounded="right" />
+                <x-name-field wire:model.lazy="name"/>
+                <x-button icon="play" :text="$action" h7 rounded="right" class="uppercase" />
             </div>
-{{--            <x-button rounded type="button" icon="hard-drive" text="Random" wire:click="randomWord"/>--}}
         </x-horizontal-field>
     </div>
 </form>

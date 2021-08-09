@@ -18,11 +18,17 @@
     <section class="max-w-lg mx-auto" x-data="gameData()" x-on:notification.window="fireNotification($event)">
         <div class="flex flex-col space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-2">
             <x-guess-cell header left>
-                <span class="w-35">{{$player1->name}}'s test&nbsp;word</span>
+                <span class="w-35">
+                    @if($player && $player->is($player1)) Your test&nbsp;word
+                    @elseif($player1) {{$player1->name}}'s test&nbsp;word</span>
+                    @endif
                 <span class="text-center w-10">Jots</span>
             </x-guess-cell>
             <x-guess-cell header>
-                <span class="w-35">{{$player2->name ?? 'Opponent'}}'s test&nbsp;word</span>
+                <span class="w-35">
+                    @if($player && $player->is($player2)) Your test&nbsp;word
+                    @else {{$player2->name ?? 'Opponent'}}'s test&nbsp;word</span>
+                    @endif
                 <span class="text-center w-10">Jots</span>
             </x-guess-cell>
             @if($player2){{-- If the game has both players --}}

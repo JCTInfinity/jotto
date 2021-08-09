@@ -1,1 +1,1 @@
-<x-make-player action="Create"/>
+<x-make-player action="New Game"/>

@@ -5,7 +5,11 @@
         @if($player->is($user))
 {{--        If you are a player and this is your side,--}}
             <span>Your secret word</span>
-            <x-secret-word class="block" :word="$player->word"/>
+            @if($player->word)
+                <livewire:set-secret-word :player="$player"/>
+            @else
+                <x-secret-word class="block" :word="$player->word"/>
+            @endif
             <span class="text-xs flex" x-data="{open:false,copied:false}">
                 <button class="underline" x-on:click="open = true" x-show="!open">Need to switch devices?</button>
                 <x-button x-cloak x-show="open" rounded="left" h7 text="Copy a return link" icon="clipboard"

@@ -1,8 +1,12 @@
 <x-layout>
     <x-main>
         <x-header-section>
+            <div class="flex-grow">
                 <livewire:create-game/>
+            </div>
+            <div class="flex-grow">
                 <livewire:open-game/>
+            </div>
         </x-header-section>
         <x-title />
         <div class="prose lg:prose-lg max-w-prose mx-auto">
@@ -48,6 +52,7 @@
                 </li>
             </ul>
             <p>Have fun!</p>
+            <p><livewire:create-game/></p>
         </div>
     </x-main>
     <x-footer/>

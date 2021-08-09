@@ -11,7 +11,6 @@ use App\Models\Word;
 trait MakesPlayers
 {
     public string $name = '';
-    public string $word = '';
 
     public function getSessionName()
     {
@@ -33,8 +32,4 @@ trait MakesPlayers
         return MakePlayer::run($this->name,$this->word);
     }
 
-    public function randomWord()
-    {
-        $this->word = GetRandomWord::run();
-    }
 }

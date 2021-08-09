@@ -26,7 +26,8 @@ class JoinGame extends Component
     {
         return array_merge_recursive(
             $this->playerRules(),
-            ['name'=>'not_in:'.$this->game->players->first()->name]
+            $this->game->players->isEmpty() ? [] :
+                ['name'=>'not_in:'.$this->game->players->first()->name],
         );
     }
 
