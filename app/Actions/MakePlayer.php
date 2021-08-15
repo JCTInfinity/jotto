@@ -7,7 +7,7 @@ use App\Rules\DictionaryWord;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
- * @method static Player run(string $name, string $word)
+ * @method static Player run(string $name)
  */
 class MakePlayer
 {
@@ -20,7 +20,7 @@ class MakePlayer
         ];
     }
 
-    public function handle($name, $word)
+    public function handle($name)
     {
         return new Player([
             'name'=>$name,

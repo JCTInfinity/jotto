@@ -5,7 +5,7 @@
         @if($player->is($user))
 {{--        If you are a player and this is your side,--}}
             <span>Your secret word</span>
-            @if($player->word)
+            @if($player->word->isEmpty())
                 <livewire:set-secret-word :player="$player"/>
             @else
                 <x-secret-word class="block" :word="$player->word"/>

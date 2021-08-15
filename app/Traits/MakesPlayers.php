@@ -29,7 +29,7 @@ trait MakesPlayers
 
     public function makePlayer()
     {
-        return MakePlayer::run($this->name,$this->word);
+        return MakePlayer::run($this->name);
     }
 
 }

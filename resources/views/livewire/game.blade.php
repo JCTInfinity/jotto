@@ -20,8 +20,9 @@
             <x-guess-cell header left>
                 <span class="w-35">
                     @if($player && $player->is($player1)) Your test&nbsp;word
-                    @elseif($player1) {{$player1->name}}'s test&nbsp;word</span>
+                    @elseif($player1) {{$player1->name}}'s test&nbsp;word
                     @endif
+                </span>
                 <span class="text-center w-10">Jots</span>
             </x-guess-cell>
             <x-guess-cell header>

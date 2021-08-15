@@ -16,6 +16,5 @@ class AddPlayerTwo
         if($player->exists) throw new \BadMethodCallException('Player already exists');
         $game->players()->save($player);
         SetSessionPlayer::run($player);
-        $game->players->random()->update(['turn'=>true]);
     }
 }

@@ -27,6 +27,14 @@ class SetSecretWord extends Component
         $this->validate();
 
         SetPlayerWord::run($this->player, $this->word);
+
+        $opponent = $this->player->opponent();
+        if($opponent && $opponent->word) {
+            $this->player->game->players()->first()
+                ->update(['turn'=>true]);
+        }
+
+        $this->emitUp('refreshPlayers');
     }
 
     public function randomWord()
