@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\Admin;
 
 use App\Models\Admin;
 use App\Notifications\AdminLoginLink;

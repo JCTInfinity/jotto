@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\Admin;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Lorisleiva\Actions\Concerns\AsController;
+use function abort;
+use function response;
 
 class AdminLogin
 {

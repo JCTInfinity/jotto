@@ -3,8 +3,8 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Actions\SetPlayerWord;
-use App\Actions\GetRandomWord;
+use App\Actions\GameStart\SetPlayerWord;
+use App\Actions\GameStart\GetRandomWord;
 use App\Models\Player;
 
 class SetSecretWord extends Component

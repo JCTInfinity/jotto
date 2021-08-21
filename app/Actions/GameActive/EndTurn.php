@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\GameActive;
 
 use App\Models\Player;
 use Lorisleiva\Actions\Concerns\AsAction;
+use App\Actions\GameEnd\DeclareVictor;
+use App\Actions\GameActive\NextTurn;
 
 class EndTurn
 {

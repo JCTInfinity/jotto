@@ -2,8 +2,8 @@
 
 namespace App\Console;
 
-use App\Actions\DefineWord;
-use App\Actions\ValidateOldGuessWords;
+use App\Actions\Admin\DefineWord;
+use App\Actions\Admin\ValidateOldGuessWords;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 

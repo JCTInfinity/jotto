@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Actions\GetGameBoard;
+use App\Actions\GameActive\GetGameBoard;
 use Livewire\Component;
 
 class OpenGame extends Component

@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\GameActive;
 
 use App\Models\Game;
 use Lorisleiva\Actions\Concerns\AsAction;
+use function view;
 
-class RemoveSessionPlayer
+class GetGameBoard
 {
     use AsAction;
 
     public function handle(Game $game)
     {
-        session()->forget('player@'.$game->code);
+        return view('game',['game'=>$game]);
     }
 }

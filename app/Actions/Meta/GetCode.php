@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\Meta;
 
 use Illuminate\Support\Str;
 use Lorisleiva\Actions\Concerns\AsAction;

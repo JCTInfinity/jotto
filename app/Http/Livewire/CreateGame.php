@@ -2,12 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Actions\AddPlayerTwo;
-use App\Actions\GetSessionName;
-use App\Actions\MakePlayer;
-use App\Actions\SetSessionName;
-use App\Actions\SetSessionPlayer;
-use App\Actions\ValidateWord;
 use App\Traits\MakesPlayers;
 use Livewire\Component;
 
@@ -39,7 +33,7 @@ class CreateGame extends Component
     {
         $this->validate();
 
-        $game = \App\Actions\CreateGame::run($this->makePlayer());
+        $game = \App\Actions\GameStart\CreateGame::run($this->makePlayer());
         return redirect()->to($game->url);
     }
 }

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\GameStart;
 
 use App\Models\Player;
 use App\Rules\DictionaryWord;
 use Lorisleiva\Actions\Concerns\AsAction;
+use App\Actions\Meta\GetCode;
 
 /**
  * @method static Player run(string $name)

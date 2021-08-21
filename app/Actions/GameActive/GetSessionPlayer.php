@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\GameActive;
 
 use App\Models\Game;
 use App\Models\Player;
 use Lorisleiva\Actions\Concerns\AsAction;
+use function session;
 
 /**
  * @method static Player|null run(Game $game)

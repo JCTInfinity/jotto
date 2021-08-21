@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\GameEnd;
 
 use App\Models\Game;
 use App\Models\Player;
 use App\Notifications\GameEnded;
 use Illuminate\Support\Facades\DB;
 use Lorisleiva\Actions\Concerns\AsAction;
+use function now;
 
 class DeclareVictor
 {

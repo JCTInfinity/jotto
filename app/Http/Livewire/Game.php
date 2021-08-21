@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire;
 
-use App\Actions\GetSessionPlayer;
-use App\Actions\MakeGuess;
-use App\Actions\RemoveSessionPlayer;
+use App\Actions\GameActive\GetSessionPlayer;
+use App\Actions\GameActive\MakeGuess;
+use App\Actions\GameActive\RemoveSessionPlayer;
 use App\Models\Player;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Arr;

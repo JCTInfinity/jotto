@@ -17,11 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/games/{game:code}',\App\Actions\GetGameBoard::class)->name('game');
-Route::get('/games/{game:code}/players/{player:code}',\App\Actions\SetSessionPlayer::class)->name('return-to-game');
+Route::get('/games/{game:code}', \App\Actions\GameActive\GetGameBoard::class)->name('game');
+Route::get('/games/{game:code}/players/{player:code}', \App\Actions\GameStart\SetSessionPlayer::class)->name('return-to-game');
 
 Route::view('about','about');
 Route::view('admin','admin.login');
 Route::view('admin/dashboard','admin.dashboard')->middleware(['auth']);
-Route::post('admin/login',\App\Actions\SendAdminLoginLink::class);
-Route::get('admin/login',\App\Actions\AdminLogin::class)->name('admin-authenticate');
+Route::post('admin/login', \App\Actions\Admin\SendAdminLoginLink::class);
+Route::get('admin/login', \App\Actions\Admin\AdminLogin::class)->name('admin-authenticate');

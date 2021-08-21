@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\GameStart;
 
 use App\Models\Word;
 use Lorisleiva\Actions\Concerns\AsAction;

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\GameStart;
 
 use App\Models\Game;
 use App\Models\Player;
 use Illuminate\Support\Arr;
 use Lorisleiva\Actions\Concerns\AsAction;
+use App\Actions\GameStart\SetSessionPlayer;
 
 class AddPlayerTwo
 {

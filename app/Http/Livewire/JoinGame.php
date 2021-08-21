@@ -2,11 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Actions\AddPlayerTwo;
-use App\Actions\GetSessionName;
-use App\Actions\MakePlayer;
-use App\Actions\SetSessionName;
-use App\Actions\SetSessionPlayer;
+use App\Actions\GameStart\AddPlayerTwo;
 use App\Traits\MakesPlayers;
 use Livewire\Component;
 

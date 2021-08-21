@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\Admin;
 
 use App\Models\Word;
 use Illuminate\Console\Command;
 use Lorisleiva\Actions\Concerns\AsAction;
+use App\Actions\ValidateWord;
 
 class DefineWord
 {

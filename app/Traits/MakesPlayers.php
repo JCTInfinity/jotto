@@ -2,10 +2,10 @@
 
 namespace App\Traits;
 
-use App\Actions\GetRandomWord;
-use App\Actions\GetSessionName;
-use App\Actions\MakePlayer;
-use App\Actions\SetSessionName;
+use App\Actions\GameStart\GetRandomWord;
+use App\Actions\GameStart\GetSessionName;
+use App\Actions\GameStart\MakePlayer;
+use App\Actions\GameStart\SetSessionName;
 use App\Models\Word;
 
 trait MakesPlayers

@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\GameActive;
 
 use App\Models\Player;
 use App\Rules\DictionaryWord;
 use Lorisleiva\Actions\Concerns\AsAction;
+use App\Actions\GameActive\CountJots;
+use App\Actions\GameActive\EndTurn;
 
 class MakeGuess
 {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Actions\SendAdminLoginLink;
+use App\Actions\Admin\SendAdminLoginLink;
 use Livewire\Component;
 
 class AdminLoginButton extends Component
