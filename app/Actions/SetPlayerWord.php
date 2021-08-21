@@ -22,6 +22,6 @@ class SetPlayerWord
 
     public function handle(Player $player, string $word): void
     {
-        $player->update(['word'=>$word]);
+        $player->update(['word'=>strtoupper($word)]);
     }
 }

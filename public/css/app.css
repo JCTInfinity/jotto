@@ -1033,6 +1033,14 @@ video {
 .w-35 {
 	width: 8.75rem;
 }
+.w-1\/2 {
+	width: 50%;
+}
+.min-w-max {
+	min-width: -webkit-max-content;
+	min-width: -moz-max-content;
+	min-width: max-content;
+}
 .max-w-5xl {
 	max-width: 64rem;
 }
@@ -1044,6 +1052,9 @@ video {
 }
 .max-w-lg {
 	max-width: 32rem;
+}
+.flex-shrink {
+	flex-shrink: 1;
 }
 .flex-grow {
 	flex-grow: 1;

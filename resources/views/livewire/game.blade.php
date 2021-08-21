@@ -1,7 +1,11 @@
 <x-main :poll="$game->ended ? false : 'attend'">
     <x-header-section>
-        <x-game-header-content :player="$player1" :user="$player" :game="$game"/>
-        <x-game-header-content :player="$player2" :user="$player" :game="$game"/>
+        <div class="w-1/2">
+            <x-game-header-content :player="$player1" :user="$player" :game="$game"/>
+        </div>
+        <div class="w-1/2">
+            <x-game-header-content :player="$player2" :user="$player" :game="$game"/>
+        </div>
     </x-header-section>
     <x-title />
     <script>

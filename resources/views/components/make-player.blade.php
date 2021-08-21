@@ -12,9 +12,12 @@
     <div class="space-y-0.5">
         <x-horizontal-field name="name">
             <div class="flex">
-                <x-name-field wire:model.lazy="name"/>
-                <x-button icon="play" :text="$action" h7 rounded="right" class="uppercase" />
+                <div class="flex-shrink">
+                    <x-name-field wire:model.lazy="name"/>
+                </div>
+                <x-button icon="play" :text="$action" h7 rounded="right" class="uppercase min-w-max" />
             </div>
         </x-horizontal-field>
     </div>
 </form>
+
