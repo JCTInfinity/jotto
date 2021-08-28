@@ -19,6 +19,8 @@ use Illuminate\Support\Carbon;
  * @property-read bool $ended
  * @property-read Collection|Player[] $players
  * @property-read Collection|Guess[] $guesses
+ * @property-read Game|null $nextGame
+ * @property-read Game|null $previousGame
  *
  * @mixin Builder
  */
@@ -58,5 +60,15 @@ class Game extends Model
     public function guesses()
     {
         return $this->hasManyThrough(Guess::class, Player::class);
+    }
+
+    public function nextGame()
+    {
+        return $this->belongsTo(Game::class, 'next_game_id');
+    }
+
+    public function previousGame()
+    {
+        return $this->hasOne(Game::class, 'next_game_id');
     }
 }
