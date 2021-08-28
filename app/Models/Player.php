@@ -74,8 +74,8 @@ class Player extends Model
     public function getUrlAttribute()
     {
         return $this->code ?
-            URL::signedRoute('return-to-game',['game'=>$this->game->code,'player'=>$this->code])
-            : route('game',['game'=>$this->game->code]);
+            URL::signedRoute('return-to-game',['game'=>$this->game,'player'=>$this])
+            : route('game',['game'=>$this->game]);
     }
 
     public function activity()

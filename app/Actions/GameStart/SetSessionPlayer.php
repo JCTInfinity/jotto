@@ -9,6 +9,7 @@ use Lorisleiva\Actions\Concerns\AsAction;
 use function redirect;
 use function session;
 use function abort;
+use Illuminate\Http\Response;
 
 /**
  * @method static run(Player $player)
@@ -24,7 +25,7 @@ class SetSessionPlayer
 
     public function asController(Request $request, Game $game, Player $player)
     {
-        if(!$request->hasValidSignature()) abort(403);
+        if(!$request->hasValidSignature()) abort(Response::HTTP_FORBIDDEN);
         $this->handle($player);
         return redirect()->route('game',['game'=>$game->code]);
     }

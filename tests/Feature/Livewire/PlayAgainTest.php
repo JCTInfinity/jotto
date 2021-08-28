@@ -9,7 +9,6 @@ use Livewire\Livewire;
 use App\Http\Livewire\PlayAgain;
 use App\Models\Game;
 use App\Models\Player;
-use App\Actions\GameActive\GetSessionPlayer;
 use App\Actions\GameStart\SetSessionPlayer;
 use App\Actions\GameStart\StartNextGame;
 
@@ -33,8 +32,7 @@ class PlayAgainTest extends TestCase
 
         $nextGame = Game::factory()->make();
 
-        $this->mock(StartNextGame::class)
-            ->shouldReceive('handle')
+        StartNextGame::shouldRun()
             ->andReturn($nextGame);
 
         Livewire::test(PlayAgain::class, ['game' => $game])
