@@ -68,7 +68,7 @@ class Player extends Model
 
     public function getWordAttribute($value)
     {
-        return Str::of($value);
+        return $value ? Str::of($value) : null;
     }
 
     public function getUrlAttribute()

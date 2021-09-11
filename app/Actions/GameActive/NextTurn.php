@@ -14,7 +14,9 @@ class NextTurn
 
     public function handle(Game $game)
     {
-        if($game->players->count() < 2) throw new \BadMethodCallException('Game is not ready');
+        if($game->players->filter->word->count() < 2) {
+            throw new \BadMethodCallException('Game is not ready');
+        }
         $currentPlayer = $game->players->firstWhere('turn',true)
             ?? $game->players->first();
         DB::transaction(fn()=>$this->togglePlayers($currentPlayer,$game->opponent($currentPlayer)));
